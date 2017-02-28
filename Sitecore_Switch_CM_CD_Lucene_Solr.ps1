@@ -1,26 +1,72 @@
-﻿# After installing Sitecore, switch the server from a CM to a CD, a CD to a CM, Lucene to Solr or Solr to Lucene.
+# After installing Sitecore, switch the server from a CM to a CD, a CD to a CM, Lucene to Solr or Solr to Lucene.
 # @craigtfromatl
+# http://www.craigtaylor.us
 
-$sitecoreSelection = Read-Host -Prompt 'Which version of Sitecore? 8.0 [1] | 8.2 rev 161221 (Update 2) [2]'
-$webrootPath = Read-Host -Prompt 'Folder path the Sitecore instance \Website? (Ex: "D:\Sitecore\Dev-CD-SC8\Website\")'
-$Command = Read-Host -Prompt 'Configure server to be [CM] or [CD]?'
-$IndexType = Read-Host -Prompt 'Lucene [L] or Solr [S]?'
-
-switch ($sitecoreSelection)
+function DisableFiles($filesToDisable)
 {
-    1 {
-        . .\Includes\8.0.ps1
-        [string]$sitecoreVersion = "8.0"
-    }
-    
-    2 {
-        . .\Includes\8.2rev161221.ps1
-        [string]$sitecoreVersion = "8.2rev161221"
+    foreach($file in $filesToDisable)
+    {
+        # Check to see if file exists
+		if (Test-Path $file)
+        {
+            $fileName = Split-Path $file -leaf
+            $newName = $fileName + ".disabled"
+			
+			$newFilePath = $file + ".disabled"
+			if (Test-Path $newFilePath)
+			{
+				Remove-Item $newFilePath
+				Write-Host "Deleted existing .disabled for: " $fileName -foregroundcolor white
+			}
+			
+            Rename-Item -Path $file -NewName $newName
+            Write-Host "Disabled $file" -foregroundcolor white 
+        }
+        else
+        {
+            Write-Host "$file not found on server.  No need to disable." -foregroundcolor white
+        }
     }
 }
 
-ConfigureServer
-
+function EnableFiles($filesToEnable)
+{
+    foreach($file in $filesToEnable)
+    {
+        # Check to see if file exists
+		if (-Not(Test-Path $file))
+        {
+			# .config didn't exist, check for .disabled
+            $fileNameDisabled = "$file.disabled"
+			
+			if(Test-Path $fileNameDisabled)
+			{
+				$existingName = $fileNameDisabled
+			}
+			else
+			{
+				# .config didn't exist, check for .example
+				$fileNameExample = "$file.example"
+				if(Test-Path $fileNameExample)
+				{
+					$existingName = $fileNameExample
+				}
+				else
+				{
+					Write-Host "Could not find $file, $fileNameDisabled or $fileNameExample.  Cound not enable." -foregroundcolor red
+					return
+				}
+			}
+			
+			Rename-Item -Path $existingName -NewName $file
+			Write-Host "Enabled: $file" -foregroundcolor white 
+        }
+        else
+        {
+            Write-Host "$file already enabled." -foregroundcolor white
+        }
+    }
+}
 
 function ConfigureServer()
 {
@@ -100,68 +146,22 @@ function ConfigureServer()
     Write-Host "#############################################"
 }
 
-function DisableFiles($filesToDisable)
+$sitecoreSelection = Read-Host -Prompt 'Which version of Sitecore? 8.0 [1] | 8.2 rev 161221 (Update 2) [2]'
+$webrootPath = Read-Host -Prompt 'Folder path the Sitecore instance \Website? (Ex: "D:\Sitecore\Dev-CD-SC8\Website\")'
+$Command = Read-Host -Prompt 'Configure server to be [CM] or [CD]?'
+$IndexType = Read-Host -Prompt 'Lucene [L] or Solr [S]?'
+
+switch ($sitecoreSelection)
 {
-    foreach($file in $filesToDisable)
-    {
-        # Check to see if file exists
-		if (Test-Path $file)
-        {
-            $fileName = Split-Path $file -leaf
-            $newName = $fileName + ".disabled"
-			
-			$newFilePath = $file + ".disabled"
-			if (Test-Path $newFilePath)
-			{
-				Remove-Item $newFilePath
-				Write-Host "Deleted existing .disabled for: " $fileName -foregroundcolor white
-			}
-			
-            Rename-Item -Path $file -NewName $newName
-            Write-Host "Disabled $file" -foregroundcolor white 
-        }
-        else
-        {
-            Write-Host "$file not found on server.  No need to disable." -foregroundcolor white
-        }
+    1 {
+        . .\Includes\8.0.ps1
+        [string]$sitecoreVersion = "8.0"
+    }
+    
+    2 {
+        . .\Includes\8.2rev161221.ps1
+        [string]$sitecoreVersion = "8.2rev161221"
     }
 }
 
-function EnableFiles($filesToEnable)
-{
-    foreach($file in $filesToEnable)
-    {
-        # Check to see if file exists
-		if (-Not(Test-Path $file))
-        {
-			# .config didn't exist, check for .disabled
-            $fileNameDisabled = "$file.disabled"
-			
-			if(Test-Path $fileNameDisabled)
-			{
-				$existingName = $fileNameDisabled
-			}
-			else
-			{
-				# .config didn't exist, check for .example
-				$fileNameExample = "$file.example"
-				if(Test-Path $fileNameExample)
-				{
-					$existingName = $fileNameExample
-				}
-				else
-				{
-					Write-Host "Could not find $file, $fileNameDisabled or $fileNameExample.  Cound not enable." -foregroundcolor red
-					return
-				}
-			}
-			
-			Rename-Item -Path $existingName -NewName $file
-			Write-Host "Enabled: $file" -foregroundcolor white 
-        }
-        else
-        {
-            Write-Host "$file already enabled." -foregroundcolor white
-        }
-    }
-}
+ConfigureServer
