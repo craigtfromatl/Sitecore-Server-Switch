@@ -35,7 +35,7 @@ Run the ```Sitecore Switch CM CD Lucene Solr.ps1``` Powershell script in Powersh
   ```
   *In this example, "CM" or "CD"*
 
-4. **Search technology**.
+4. **Indexing technology**.
 
   ```
   Lucene [L] or Solr [S]?
