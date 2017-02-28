@@ -68,7 +68,7 @@ Run the ```Sitecore Switch CM CD Lucene Solr.ps1``` Powershell script in Powersh
 * Craig Taylor - [@craigtfromatl](https://twitter.com/craigtfromatl)
 
 ## License
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details
 
 ## Acknowledgments
 * Sarkis Einarsson - I used Sarkis' script (with permission) as a base for mine and extended to allow for additional versions http://sitecoreunleashed.blogspot.com/2015/09/sitecore-8-toggle-cd-configuration.html
