@@ -4,7 +4,7 @@ Powershell Scripts to allow switching between CM and CD servers and between Luce
 ## What's in the Box?
 * Sitecore_Switch_CM_CD_Lucene_Solr.ps1 script - Base script that swaps files for use in different server configurations.
 
-* Includes Folder - Separate Powershell files that contains the file differences for different versions of Sitecore.  See [Supported Sitecore Versions](#supported-sitecore-versions) for details.
+* '''includes''' Folder - Separate Powershell files that contains the file differences for different versions of Sitecore.  See [Supported Sitecore Versions](#supported-sitecore-versions) for details.
 
 ## How to Use this Module
 
