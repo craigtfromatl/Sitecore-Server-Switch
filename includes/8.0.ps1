@@ -8,6 +8,7 @@
 # Sitecore Experience Platform 8.0 rev. 150121 (8.0 Update-1)
 # Sitecore Experience Platform 8.0 rev. 141212 (8.0 Initial Release)
 # @craigtfromatl
+# http://www.craigtaylor.us
 
 function 8.0_Get-AllLuceneFiles()
 {
