@@ -1,5 +1,5 @@
 # Sitecore Server Switch
-Powershell Scripts to allow switching between CM and CD servers and between Lucene and Solr.  Files to switch are based on Sitecore's [official documentation](http://doc.sitecore.net).
+Powershell Scripts to allow switching between CM and CD servers and between Lucene and Solr.  Files to switch are based on Sitecore's <a href="http://doc.sitecore.net" target="_blank">official documentation</a>.
 
 ## What's in the Box?
 * ```Sitecore_Switch_CM_CD_Lucene_Solr.ps1``` script - Base script that swaps files for use in different server configurations.
@@ -47,7 +47,7 @@ Run the ```Sitecore_Switch_CM_CD_Lucene_Solr.ps1``` Powershell script in Powersh
 
 * No attempt has been made to create any patch include files here.  After running this script, you will still need to create your patch include files to modify any values in these files as required. (changing data folder location, setting Solr server, connection strings, etc)
 
-* No attempt has been made to harden the CD server.  Please see [Sitecore documentation](http://doc.sitecore.net) for how to secure your CD server(s).
+* No attempt has been made to harden the CD server.  Please see <a href="http://doc.sitecore.net" target="_blank">Sitecore documentation</a> for how to secure your CD server(s).
 
 ## Supported Sitecore Versions
 *More versions coming*
@@ -65,12 +65,12 @@ Run the ```Sitecore_Switch_CM_CD_Lucene_Solr.ps1``` Powershell script in Powersh
 * Sitecore Experience Platform 8.0 rev. 141212 (8.0 Initial Release)
 
 ## Authors
-* Craig Taylor - [@craigtfromatl](https://twitter.com/craigtfromatl)
+* Craig Taylor - <a href="https://twitter.com/craigtfromatl" target="_blank">@craigtfromatl</a>
 
-  [Craig on Sitecore](http://craigtaylor.us)
+  <a href="https://www.craigtaylor.us" target="_blank">Craig on Sitecore</a>
 
 ## License
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details
 
 ## Acknowledgments
-* Sarkis Einarsson - I used Sarkis' script (with permission) as a base for mine and extended to allow for additional versions http://sitecoreunleashed.blogspot.com/2015/09/sitecore-8-toggle-cd-configuration.html
+* Sarkis Einarsson - I used Sarkis' script (with permission) as a base for mine and extended to allow for additional versions <a href="http://sitecoreunleashed.blogspot.com/2015/09/sitecore-8-toggle-cd-configuration.html" target="_blank">http://sitecoreunleashed.blogspot.com/2015/09/sitecore-8-toggle-cd-configuration.html</a>
