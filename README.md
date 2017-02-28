@@ -67,7 +67,7 @@ Run the ```Sitecore_Switch_CM_CD_Lucene_Solr.ps1``` Powershell script in Powersh
 ## Authors
 * Craig Taylor - [@craigtfromatl](https://twitter.com/craigtfromatl)
 
-[Craig on Sitecore](http://craigtaylor.us)
+  [Craig on Sitecore](http://craigtaylor.us)
 
 ## License
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details
