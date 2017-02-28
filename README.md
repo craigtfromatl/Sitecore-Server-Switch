@@ -52,7 +52,7 @@ Run the ```Sitecore_Switch_CM_CD_Lucene_Solr.ps1``` Powershell script in Powersh
 ## Troubleshooting
 * While attempting to run the script, you may encounter an error that states ```.\Sitecore_Switch_CM_CD_Lucene_Solr.ps1 : File C:\<Your File Path>\Sitecore_Switch_CM_CD_Lucene_Solr.ps1 cannot be loaded.  The file C:\<Your File Path>\Sitecore_Switch_CM_CD_Lucene_Solr.ps1 is not digitally signed.  YOu cannot run this script on the current system.  For more information about running scripts and setting execution policy, see about_Execution_Policies at http://go.microsoft.com/fwlink/?LinkID=135170.```
 
-  To solve this issue, look at the properties of the ```Sitecore_Switch_CM_CD_Lucene_Solr.ps1``` file and "Unblock" it.
+  To solve this issue, look at the properties of the ```Sitecore_Switch_CM_CD_Lucene_Solr.ps1``` file (and all corresponding PowerShell scripts in the ```includes``` folder) and "Unblock" it.
 
 ## Supported Sitecore Versions
 *More versions coming*
