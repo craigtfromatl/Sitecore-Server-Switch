@@ -2,7 +2,7 @@
 Powershell Scripts to allow switching between CM and CD servers and between Lucene and Solr.  Files to switch are based on Sitecore's [official documentation](http://doc.sitecore.net).
 
 ## What's in the Box?
-* Sitecore Switch CM CD Lucene Solr.ps1 script - Base script that swaps files for use in different server configurations.
+* Sitecore_Switch_CM_CD_Lucene_Solr.ps1 script - Base script that swaps files for use in different server configurations.
 
 * Includes Folder - Separate Powershell files that contains the file differences for different versions of Sitecore.  See [Supported Sitecore Versions](#supported-sitecore-versions) for details.
 
@@ -14,7 +14,7 @@ Powershell Scripts to allow switching between CM and CD servers and between Luce
 2. Ensure that you have the permissions set on the ```Website``` folder to allow modifications to the files.  Failing to set permissions will result in "access is denied" errors.
 
 ### Running the Script
-Run the ```Sitecore Switch CM CD Lucene Solr.ps1``` Powershell script in Powershell or Powershell ISE.  There are four parameters that are required:
+Run the ```Sitecore_Switch_CM_CD_Lucene_Solr.ps1``` Powershell script in Powershell or Powershell ISE.  There are four parameters that are required:
 
 1. **Sitecore version**.  Specify the version of Sitecore that you are working with:
 
