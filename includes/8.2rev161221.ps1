@@ -1,5 +1,6 @@
 ﻿# Functions that contain all the config files for Sitecore Experience Platform 8.2 rev. 161221 (8.2 Update-2)
 # @craigtfromatl
+# http://www.craigtaylor.us
 
 function 8.2rev161221_Get-AllLuceneFiles()
 {
